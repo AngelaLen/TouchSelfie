@@ -9,7 +9,7 @@ Constants for the TouchSelfie program
     A dict of dict data structure to tune software buttons (in case of no hardware buttons)
 .. py:data:: HARDWARE_BUTTONS
     configuration of the hardware buttons' GPIO pins, pull_up_down state and active state
-.. py:data:: EMAIL_BUTTON_IMG  
+.. py:data:: EMAIL_BUTTON_IMG
     'send_email' button icon
 .. py:data:: OAUTH2_REFRESH_PERIOD
     interval between two OAuth2 token refresh (ms)
@@ -40,11 +40,11 @@ EFFECTS_PARAMETERS = {
         'logo_size' : 128,         # height in pixels of the logo (will be thumbnailed to this size)
         'logo_padding' : 32        # bottom and right padding of the logo (pixels)
     },
-    "Four": { 
+    "Four": {
         'snap_size' : (820,616),                       #(width, height) of each shots of the 2x2 collage
         'foreground_image' : "../logos/collage_four_square_logo.png" # Overlay image on top of the collage
     },
-    "Nine": { 
+    "Nine": {
         'snap_size' : (546,410),                       #(width, height) of each shots of the 2x2 collage
         'foreground_image' : "../logos/collage_nine_square_logo.png" # Overlay image on top of the collage
     },
@@ -58,30 +58,18 @@ EFFECTS_PARAMETERS = {
 
 # Path to icons for the software buttons (no hardware buttons setup)
 SOFTWARE_BUTTONS = {
-    "Four": {
-        "icon" : os.path.join("ressources","ic_four.png"),
-        "order":1
-        },
-    "Nine": {
-        "icon" : os.path.join("ressources","ic_nine.png"),
-        "order":2
-        },
     "None": {
         "icon" : os.path.join("ressources","ic_portrait.png"),
         "order":0
-        },
-    "Animation": {
-        "icon" : os.path.join("ressources","ic_anim.png"),
-        "order":3
         }
 }
 
 # piCamera Builtin effects selection list
 # @see https://picamera.readthedocs.io/en/release-1.13/api_camera.html#picamera.PiCamera.image_effect
-# this constant maps a subset of picamera builtin effects 
+# this constant maps a subset of picamera builtin effects
 # and (optional) parameters to a thumbnail
 #
-# needed keys: 
+# needed keys:
 # - "effect_name": the name of the piCamera image_effect
 # - "effect_icon": path to the thumbnail that represents this effect (MUST be square)
 # - "effect_params": (opt) parameters for the effect (see image_effect_parameter)
@@ -110,7 +98,7 @@ IMAGE_EFFECTS = {
         "effect_icon": os.path.join(EFFECTS_THUMB_DIR,"eff_none.png")
     },
     # solarize would require some image analysis in order to set the right parameters
-    "solarize": { 
+    "solarize": {
         "effect_name":"solarize",
         "effect_icon": os.path.join(EFFECTS_THUMB_DIR,"eff_solarize.png")
     },

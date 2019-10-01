@@ -28,7 +28,7 @@ def argsort(seq):
     #http://stackoverflow.com/questions/3382352/equivalent-of-numpy-argsort-in-basic-python/3382369#3382369
     #by unutbu
     return sorted(range(len(seq)), key=seq.__getitem__)
-    
+
 def shuffle(l, swaps=50):
     import random
     ### perform n swaps
@@ -180,7 +180,7 @@ class UserInterface():
                 if not self.suspend_poll == True:
                     callback()
             return safe_execute
-            
+
         install_key_binding("snap_None",safe_execute_factory(lambda *args: self.snap("None")))
         install_key_binding("snap_Four",safe_execute_factory(lambda *args: self.snap("Four")))
         install_key_binding("snap_Nine",safe_execute_factory(lambda *args: self.snap("Nine")))
@@ -189,7 +189,7 @@ class UserInterface():
         install_key_binding("configure",safe_execute_factory(lambda *args: self.long_press_cb(self)))
         install_key_binding("send_print",safe_execute_factory(lambda *args: self.send_print()))
         ## Bind keyboard keys to actions
-        
+
         self.full_screen = config.full_screen
         if config.full_screen:
             self.root.attributes("-fullscreen",True)
@@ -200,7 +200,7 @@ class UserInterface():
             self.size=(SCREEN_W,SCREEN_H)
             window_size= self.size
 
-        self.root.configure(background='black')
+        self.root.configure(background='light sea green')
         if window_size is not None:
             self.size=window_size
         else:
@@ -211,7 +211,7 @@ class UserInterface():
         #Configure Image holder
         self.image = ImageLabel(self.root, size=self.size)
         self.image.place(x=0, y=0, relwidth = 1, relheight=1)
-        self.image.configure(background='black')
+        self.image.configure(background='light sea green')
 
 
         #Create sendprint button
@@ -225,7 +225,7 @@ class UserInterface():
             self.print_btn.configure(background= 'black')
 
         self.send_emails = send_emails
-        
+
         #Create sendmail Button
         if self.send_emails:
             mail_image = Image.open(EMAIL_BUTTON_IMG)
@@ -234,7 +234,7 @@ class UserInterface():
             self.mail_btn  = Button(self.root,image = self.mail_imagetk, height=h, width=w, command=self.send_email )
             self.mail_btn.place(x=SCREEN_W-w-2, y=0)
             self.mail_btn.configure(background = 'black')
-            
+
         #Create image_effects button
         self.image_effects = image_effects
         self.selected_image_effect='none'
@@ -245,7 +245,7 @@ class UserInterface():
             self.effects_btn = Button(self.root, image = self.effects_imagetk, height=h, width=w, command=self.__choose_effect)
             self.effects_btn.place(x=SCREEN_W-w-2,y=int((SCREEN_H-h)/2))
             self.effects_btn.configure(background = 'black')
-            
+
         #Create status line
         self.status_lbl = Label(self.root, text="", font=("Helvetica", 20))
         self.status_lbl.config(background='black', foreground='white')
@@ -561,7 +561,7 @@ class UserInterface():
                     self.camera.image_effect = IMAGE_EFFECTS[image_effect]['effect_name']
                     if 'effect_params' in IMAGE_EFFECTS[image_effect]:
                         self.camera.image_effect_params = IMAGE_EFFECTS[image_effect]['effect_params']
-                    
+
                     self.camera.capture('collage_%d.jpg' % i)
                 # Assemble collage
                 self.camera.stop_preview()
@@ -623,7 +623,7 @@ class UserInterface():
                 self.status("")
                 snap_filename = 'animation.gif'
                 self.last_picture_mime_type = 'image/gif'
-            
+
             # cancel image_effect (hotfix: effect was not reset to 'none' after each shot)
             self.selected_image_effect = 'none'
 
@@ -653,7 +653,7 @@ class UserInterface():
                     except Exception as e:
                         self.status("Error uploading image :(")
                         self.log.exception("snap: Error uploading image")
-                
+
                 # 3. Archive
                 if config.ARCHIVE:
                     self.log.info("Archiving image %s"%self.last_picture_title)
@@ -720,7 +720,7 @@ class UserInterface():
                         self.status("Saving failed :(")
                         self.log.exception("Image %s couldn't be saved"%self.last_picture_title)
                         picture_saved = False
-                        
+
 
             else:
                 # error
@@ -1035,7 +1035,7 @@ class UserInterface():
         status = "%s (%s) %s %s\n"%(ts,sendcode,mail_address,file_path)
         sendmail_log.write(status)
         sendmail_log.close()
-        
+
     def __choose_effect(self):
         """Displays a screen from where user can choose a builtin effect
         This modifies self.selected_image_effect
@@ -1051,13 +1051,13 @@ class UserInterface():
             top.attributes("-fullscreen",True)
         top.geometry('%dx%d+0+0'%(self.size[0],self.size[1]))
         top.configure(background='black')
-        
+
         #layout
         NCOLS=4
-        NROWS=3       
+        NROWS=3
         window_width = self.size[0]
         window_height = self.size[1]
-        
+
         button_size = min(int(window_width/NCOLS),int(window_height/NROWS))
         button_images =[]
         def cb_factory(img_effect):
@@ -1066,7 +1066,7 @@ class UserInterface():
                 self.log.info("Effect " + str(img_effect) +" selected")
                 top.destroy()
             return mod_effect
-            
+
         effect_buttons=[]
         for index in range(len(IMAGE_EFFECTS_LIST)):
             effect = IMAGE_EFFECTS_LIST[index]
@@ -1090,9 +1090,9 @@ class UserInterface():
         top.columnconfigure(NCOLS+1,weight=1)
         top.rowconfigure(0, weight=1)
         top.rowconfigure(NROWS+1, weight=1)
-        
+
         self.root.wait_window(top)
-        
+
 if __name__ == '__main__':
 
     import argparse
@@ -1108,11 +1108,11 @@ if __name__ == '__main__':
     parser.add_argument("--log-level", type=str, choices=['DEBUG','INFO','WARNING','ERROR','CRITICAL'],
                     help="Log level (defaults to WARNING)")
     args = parser.parse_args()
-    
+
     if args.log_level is None:
         args.log_level = "INFO"
-        
-    
+
+
     #print args
     import configuration
     config = configuration.Configuration("configuration.json")
@@ -1125,7 +1125,7 @@ if __name__ == '__main__':
         config.logo = Image.open(config.logo_file)
     else:
         config.logo = None
-        
+
     # command line arguments have higher precedence than config
     if args.disable_upload and config.enable_upload:
         log.warning("* Command line argument '--disable-upload' takes precedence over configuration")
