@@ -248,7 +248,7 @@ class UserInterface():
 
         #Create status line
         self.status_lbl = Label(self.root, text="", font=("Helvetica", 20))
-        self.status_lbl.config(background='#b0f4ea', foreground='white')
+        self.status_lbl.config(background='#b0f4ea', foreground='#ff91aa')
         self.status_lbl.place(x=0 + 10, y=0)
 
         #State variables
