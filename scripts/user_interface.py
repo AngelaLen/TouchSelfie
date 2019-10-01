@@ -641,7 +641,7 @@ class UserInterface():
                 self.image.load(snap_filename)
                 # 2. Upload
                 if self.signed_in:
-                    self.status("Uploading image")
+                    self.status("Saving image")
                     self.log.debug("Uploading image")
                     try:
                         self.googleUpload(
