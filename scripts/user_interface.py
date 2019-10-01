@@ -327,7 +327,8 @@ class UserInterface():
                 Y = self.size[1] - h
                 tkimage = self.software_buttons_images[effect]['image']
 
-                btn = Button(self.root, image=tkimage, width = w, height= h, command=snap_factory(effect))
+                btn = Button(self.root, image=tkimage, width = w, height= h, command=snap_factory(effect), highlightthickness = 0)
+                btn.config(bg="white")
                 self.software_buttons.append(btn)
                 btn.place(x=X_,y=Y)
                 btn.configure(background = 'black')
