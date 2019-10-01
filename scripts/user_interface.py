@@ -330,7 +330,7 @@ class UserInterface():
                 btn = Button(self.root, image=tkimage, width = w, height= h, command=snap_factory(effect), highlightthickness = 0, bd=0)
                 btn.config(bg="snow")
                 self.software_buttons.append(btn)
-                btn.place(x=X_,y=Y, anchor=CENTER)
+                btn.place(anchor=CENTER)
                 X_ = X_ + w + padding
 
         #Camera
