@@ -200,7 +200,7 @@ class UserInterface():
             self.size=(SCREEN_W,SCREEN_H)
             window_size= self.size
 
-        self.root.configure(background='light sea green')
+        self.root.configure(background='#b0f4ea')
         if window_size is not None:
             self.size=window_size
         else:
@@ -211,7 +211,7 @@ class UserInterface():
         #Configure Image holder
         self.image = ImageLabel(self.root, size=self.size)
         self.image.place(x=0, y=0, relwidth = 1, relheight=1)
-        self.image.configure(background='light sea green')
+        self.image.configure(background='#b0f4ea')
 
 
         #Create sendprint button
