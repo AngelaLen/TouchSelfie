@@ -309,7 +309,7 @@ class UserInterface():
                 self.software_buttons_images[effect]['size'] = (w,h)
                 total_width = total_width + w
             #we have the total size, compute padding
-            padding = int((self.size[0] - total_width) / (len(SOFTWARE_BUTTONS) - 1))
+            padding = int((self.size[0] - total_width) / (len(SOFTWARE_BUTTONS)))
             # decurrying of callback parameter
             def snap_factory(effect):
                 def snap_fun():
