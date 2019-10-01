@@ -59,7 +59,7 @@ EFFECTS_PARAMETERS = {
 # Path to icons for the software buttons (no hardware buttons setup)
 SOFTWARE_BUTTONS = {
     "None": {
-        "icon" : os.path.join("ressources","ic_portrait.jpg"),
+        "icon" : os.path.join("ressources","ic_portrait.png"),
         "order":0
         }
 }
