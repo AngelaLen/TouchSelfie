@@ -788,7 +788,7 @@ class UserInterface():
         self.__countdown_set_led(led_state)
 
         self.camera.preview.fullscreen = True
-        self.camera.preview.hflip = True  #Mirror effect for easier selfies
+        self.camera.preview.hflip = False  #Mirror effect for easier selfies
         #for some reason camera.preview.window =(0,0,0,0)
         #bbox = self.camera.preview.window
         #preview_width = bbox[2]
