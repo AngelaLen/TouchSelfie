@@ -875,7 +875,10 @@ class UserInterface():
                 self.mail_btn.configure(state=NORMAL)
             return
         # actual refresh
-        if self.oauth2service.refresh():
+        try:
+            self.auth = self.oauth2service.refresh();
+        except: self.log.error('oauth2service.refresh() failed')
+        if self.auth:
             if self.send_emails:
                 self.mail_btn.configure(state=NORMAL)
             self.signed_in = True
