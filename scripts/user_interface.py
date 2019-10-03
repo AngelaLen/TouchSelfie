@@ -335,6 +335,7 @@ class UserInterface():
 
         #Camera
         self.camera = mycamera.PiCamera()
+        mycamera.rotation = 180
         self.camera.annotate_text_size = 160 # Maximum size
         self.camera.annotate_foreground = Color('white')
         self.camera.annotate_background = Color('black')
